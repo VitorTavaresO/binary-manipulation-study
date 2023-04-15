@@ -1,6 +1,6 @@
-int setBit(int num, int bit, int valorBit){
+int setBit(int num, int bit, int valueBit){
         num &=  ~(0x01 << bit);
-        num |= (valorBit << bit);
+        num |= (valueBit << bit);
     return num;
 }
 
@@ -8,15 +8,18 @@ int getBit(int num, int bit){
     return (num >> bit) & 0x01;
 }
 
+int setBitOn(int num, int firstBit, int lastBit, int valueBit){
+    int i;
+    for(i = firstBit; i <= lastBit; i++){
+        num = setBit(num, i, valueBit);
+    }
+    return num;
+}
+
 
 int main(void){
-    unsigned int num = 0x0000;
-    num = setBit(num, 0, 1);
-    printf("0x%X \n", num);
-    int bit_0 = getBit(num, 0);
-    printf("%X \n", bit_0);
-    num = setBit(num, 0, 0);
-    bit_0 = getBit(num, 0);
-    printf("%X \n", bit_0);
+    unsigned int num = 0x0000000;
+    num = setBitOn(num, 2, 4, 1);
+    printf("%d", num);
     return 0;
 }
