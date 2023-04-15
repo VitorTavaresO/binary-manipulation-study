@@ -1,1 +1,1 @@
-# study about binary manipulation on C
+# A personal study about binary manipulation on C
