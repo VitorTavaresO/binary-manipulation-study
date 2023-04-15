@@ -16,10 +16,14 @@ int setBitOn(int num, int firstBit, int lastBit, int valueBit){
     return num;
 }
 
+int isPair(int num){
+    return getBit(num, 0) & 0x01; 
+}
+
 
 int main(void){
     unsigned int num = 0x0000000;
-    num = setBitOn(num, 2, 4, 1);
-    printf("%d", num);
+    num = setBit(num, 0, 1);
+    printf("Caso o resultado seja 0, ele e par: %d", isPair(num));
     return 0;
 }
