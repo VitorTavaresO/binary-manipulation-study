@@ -14,12 +14,10 @@ int getBit(int num, int bit){
 int setBitOn(int num, int startBit, int endBit, int value) {
     int numBits = endBit - startBit + 1;
 
-    // Create a mask with the bits to set all set to the given value
     int mask = ((1 << numBits) - 1) << startBit;
-    mask &= ~(num & mask); // Clear the bits to set in num
-    mask |= (value << startBit); // Set the bits to the given value
+    mask &= ~(num & mask);
+    mask |= (value << startBit);
 
-    // Update num with the new bits
     num |= mask;
 
     return num;
